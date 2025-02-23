@@ -1,0 +1,102 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{1C0342FD-3483-4F2D-8F9A-BAD58A3111A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cantor", "Cantor", "{B0F4D179-AA7A-47D1-A537-135A79C7ABE3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wallet", "Wallet", "{7065FEB4-50FA-44A5-8E3A-D14A5EDBC888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.Cantor.Domain", "Modules.Cantor.Domain\Modules.Cantor.Domain.csproj", "{6EA259A9-FBC4-456C-8898-666A1B46DF1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.Cantor.Application", "Modules.Cantor.Application\Modules.Cantor.Application.csproj", "{E9682098-C8F5-45A1-B626-C932BA1CE0FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.Wallet.Domain", "Modules.Wallet.Domain\Modules.Wallet.Domain.csproj", "{60360430-CD33-421E-A510-520C8089DD45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.Wallet.Application", "Modules.Wallet.Application\Modules.Wallet.Application.csproj", "{C320A9F7-F79D-46D0-9F64-331544B10B80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.Cantor.Infrastructure", "Modules.Cantor.Infrastructure\Modules.Cantor.Infrastructure.csproj", "{CF3F1559-B41A-4B54-9DAA-82074F9CB757}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.Wallet.Infrastructure", "Modules.Wallet.Infrastructure\Modules.Wallet.Infrastructure.csproj", "{339D1E81-43DE-4336-8A9E-34560F4AE2DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.Cantor.Presentation", "Modules.Cantor.Presentation\Modules.Cantor.Presentation.csproj", "{A7C1A076-39CE-4B3C-87F0-DD3EF0DC70D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.Wallet.Presentation", "Modules.Wallet.Presentation\Modules.Wallet.Presentation.csproj", "{076B4122-478F-47B5-9B85-34FE2B4E4C65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.Wallet.Api", "Modules.Wallet.Api\Modules.Wallet.Api.csproj", "{C5DEC7F1-7084-4A33-946D-E0A870B22F40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules.Cantor.API", "Modules.Cantor.API\Modules.Cantor.API.csproj", "{E5962157-F1CF-4AC7-B166-7F5A8CCE8661}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EA259A9-FBC4-456C-8898-666A1B46DF1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA259A9-FBC4-456C-8898-666A1B46DF1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA259A9-FBC4-456C-8898-666A1B46DF1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA259A9-FBC4-456C-8898-666A1B46DF1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9682098-C8F5-45A1-B626-C932BA1CE0FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9682098-C8F5-45A1-B626-C932BA1CE0FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9682098-C8F5-45A1-B626-C932BA1CE0FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9682098-C8F5-45A1-B626-C932BA1CE0FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60360430-CD33-421E-A510-520C8089DD45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60360430-CD33-421E-A510-520C8089DD45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60360430-CD33-421E-A510-520C8089DD45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60360430-CD33-421E-A510-520C8089DD45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C320A9F7-F79D-46D0-9F64-331544B10B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C320A9F7-F79D-46D0-9F64-331544B10B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C320A9F7-F79D-46D0-9F64-331544B10B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C320A9F7-F79D-46D0-9F64-331544B10B80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF3F1559-B41A-4B54-9DAA-82074F9CB757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF3F1559-B41A-4B54-9DAA-82074F9CB757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF3F1559-B41A-4B54-9DAA-82074F9CB757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF3F1559-B41A-4B54-9DAA-82074F9CB757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{339D1E81-43DE-4336-8A9E-34560F4AE2DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{339D1E81-43DE-4336-8A9E-34560F4AE2DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{339D1E81-43DE-4336-8A9E-34560F4AE2DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{339D1E81-43DE-4336-8A9E-34560F4AE2DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7C1A076-39CE-4B3C-87F0-DD3EF0DC70D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C1A076-39CE-4B3C-87F0-DD3EF0DC70D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C1A076-39CE-4B3C-87F0-DD3EF0DC70D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C1A076-39CE-4B3C-87F0-DD3EF0DC70D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{076B4122-478F-47B5-9B85-34FE2B4E4C65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076B4122-478F-47B5-9B85-34FE2B4E4C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076B4122-478F-47B5-9B85-34FE2B4E4C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076B4122-478F-47B5-9B85-34FE2B4E4C65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5DEC7F1-7084-4A33-946D-E0A870B22F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5DEC7F1-7084-4A33-946D-E0A870B22F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5DEC7F1-7084-4A33-946D-E0A870B22F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5DEC7F1-7084-4A33-946D-E0A870B22F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5962157-F1CF-4AC7-B166-7F5A8CCE8661}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5962157-F1CF-4AC7-B166-7F5A8CCE8661}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5962157-F1CF-4AC7-B166-7F5A8CCE8661}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5962157-F1CF-4AC7-B166-7F5A8CCE8661}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C0342FD-3483-4F2D-8F9A-BAD58A3111A4} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{B0F4D179-AA7A-47D1-A537-135A79C7ABE3} = {1C0342FD-3483-4F2D-8F9A-BAD58A3111A4}
+		{7065FEB4-50FA-44A5-8E3A-D14A5EDBC888} = {1C0342FD-3483-4F2D-8F9A-BAD58A3111A4}
+		{6EA259A9-FBC4-456C-8898-666A1B46DF1A} = {B0F4D179-AA7A-47D1-A537-135A79C7ABE3}
+		{E9682098-C8F5-45A1-B626-C932BA1CE0FF} = {B0F4D179-AA7A-47D1-A537-135A79C7ABE3}
+		{60360430-CD33-421E-A510-520C8089DD45} = {7065FEB4-50FA-44A5-8E3A-D14A5EDBC888}
+		{C320A9F7-F79D-46D0-9F64-331544B10B80} = {7065FEB4-50FA-44A5-8E3A-D14A5EDBC888}
+		{CF3F1559-B41A-4B54-9DAA-82074F9CB757} = {B0F4D179-AA7A-47D1-A537-135A79C7ABE3}
+		{339D1E81-43DE-4336-8A9E-34560F4AE2DC} = {7065FEB4-50FA-44A5-8E3A-D14A5EDBC888}
+		{A7C1A076-39CE-4B3C-87F0-DD3EF0DC70D2} = {B0F4D179-AA7A-47D1-A537-135A79C7ABE3}
+		{076B4122-478F-47B5-9B85-34FE2B4E4C65} = {7065FEB4-50FA-44A5-8E3A-D14A5EDBC888}
+		{C5DEC7F1-7084-4A33-946D-E0A870B22F40} = {7065FEB4-50FA-44A5-8E3A-D14A5EDBC888}
+		{E5962157-F1CF-4AC7-B166-7F5A8CCE8661} = {B0F4D179-AA7A-47D1-A537-135A79C7ABE3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49C7F04C-EF38-4832-B721-609E35D79554}
+	EndGlobalSection
+EndGlobal
