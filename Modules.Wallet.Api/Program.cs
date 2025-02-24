@@ -1,6 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using Modules.Wallet.Api.Endpoints;
 using Modules.Wallet.Application;
+using Modules.Wallet.Application.Abstractions.Data;
+using Modules.Wallet.Domain;
 using Modules.Wallet.Infrastructure;
+using Modules.Wallet.Infrastructure.Repositories;
 using Serilog;
 
 namespace Modules.Wallet.Api
@@ -24,7 +28,10 @@ namespace Modules.Wallet.Api
             builder.Services
                 .AddApplication();
 
-            builder.Services.AddDbContext<WalletAppDbContext>();
+            builder.Services.AddDbContext<WalletAppDbContext>()
+                .AddScoped<IWalletRepository, WalletRepository>()
+                .AddScoped<IUnitOfWork, UnitOfWork>()
+                .AddHealthChecks();
 
             builder.Host.UseSerilog((ctx, cfg) => cfg.ReadFrom.Configuration(ctx.Configuration));
 
@@ -43,6 +50,8 @@ namespace Modules.Wallet.Api
             }
 
             app.UseSerilogRequestLogging();
+
+            app.MapWalletEndpoints();
 
             app.UseHttpsRedirection();
 

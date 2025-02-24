@@ -11,6 +11,7 @@ namespace Modules.Wallet.Infrastructure
             Batteries.Init();
             string path = Environment.CurrentDirectory;
             DBPath = Path.Join(path, "wallet.db");
+            this.ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
         public DbSet<Tenant> Tenants { get; set; }
@@ -21,12 +22,18 @@ namespace Modules.Wallet.Infrastructure
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlite($"Data Source={DBPath}");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(WalletAppDbContext).Assembly);
+        }
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            this.ChangeTracker.DetectChanges();
+            return await base.SaveChangesAsync(cancellationToken);
         }
     }
 }

@@ -10,9 +10,7 @@ namespace Modules.Wallet.Application.Abstractions.Data
         Task<Domain.Wallet?> GetWalletById(WalletGuid walletId, CancellationToken cancellationToken);
         Task<List<Domain.Wallet>> GetWallets(TenantGuid tenantId, CancellationToken cancellationToken);
         Task UpdateWallet(Domain.Wallet wallet, CancellationToken cancellationToken);
-        //Task AddWalletItem(WalletItem walletItem, CancellationToken cancellationToken);
-        //Task<List<WalletItem>> GetWalletItems(WalletGuid waletId, CancellationToken cancellationToken);
-        //Task<WalletItem?> GetWalletItemById(WalletItemGuid walletItemId, CancellationToken cancellationToken);
+        Task<WalletItem?> GetWalletItemById(WalletItemGuid walletItemId, CancellationToken cancellationToken);
     }
 }
 

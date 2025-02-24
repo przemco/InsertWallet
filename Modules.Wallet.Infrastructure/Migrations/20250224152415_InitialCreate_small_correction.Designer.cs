@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Modules.Wallet.Infrastructure;
 
@@ -11,9 +12,11 @@ using Modules.Wallet.Infrastructure;
 namespace Modules.Wallet.Infrastructure.Migrations
 {
     [DbContext(typeof(WalletAppDbContext))]
-    partial class WalletAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250224152415_InitialCreate_small_correction")]
+    partial class InitialCreate_small_correction
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.2");
@@ -36,7 +39,7 @@ namespace Modules.Wallet.Infrastructure.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("Tenants", (string)null);
+                    b.ToTable("Tenants");
                 });
 
             modelBuilder.Entity("Modules.Wallet.Domain.Wallet", b =>
@@ -55,7 +58,7 @@ namespace Modules.Wallet.Infrastructure.Migrations
 
                     b.HasIndex("TenantId");
 
-                    b.ToTable("Wallets", (string)null);
+                    b.ToTable("Wallets");
                 });
 
             modelBuilder.Entity("Modules.Wallet.Domain.WalletItem", b =>
@@ -88,7 +91,7 @@ namespace Modules.Wallet.Infrastructure.Migrations
 
                     b.HasIndex("WalletId");
 
-                    b.ToTable("WalletItems", (string)null);
+                    b.ToTable("WalletItems");
                 });
 
             modelBuilder.Entity("Modules.Wallet.Domain.Wallet", b =>

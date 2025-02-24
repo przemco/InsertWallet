@@ -2,11 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using Modules.Cantor.Application;
 using Modules.Cantor.Application.Abstractions.Data;
 using Modules.Cantor.Application.Abstractions.Services;
+using Modules.Cantor.Domain;
 using Modules.Cantor.Infrastructure;
 using Modules.Cantor.Infrastructure.Repositories;
 using Modules.Cantor.Infrastructure.Services;
 using Modules.Cantor.Presentation.Endpoints;
-using Modules.Wallet.Infrastructure;
 using Serilog;
 
 namespace Modules.Cantor.API
@@ -34,6 +34,7 @@ namespace Modules.Cantor.API
             builder.Services.AddDbContext<CantorAppDbContext>()
                 .AddScoped<ICurrencyService, CurrencyService>()
                 .AddScoped<ICantorRepository, CantorRepository>()
+                .AddScoped<IUnitOfWork, UnitOfWork>()
                 .AddHealthChecks();
 
             builder.Host.UseSerilog((ctx, cfg) => cfg.ReadFrom.Configuration(ctx.Configuration));

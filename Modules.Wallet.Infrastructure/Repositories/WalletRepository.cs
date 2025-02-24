@@ -24,15 +24,12 @@ namespace Modules.Wallet.Infrastructure.Repositories
             {
                 throw new NullReferenceException("Cannot add wallet. Tenant is null.");
             }
-
-            await _walletAppDbContext.SaveChangesAsync();
         }
 
         public async Task CreateTenant(Tenant tenant, CancellationToken cancellationToken)
         {
-            await _walletAppDbContext.Tenants.AddAsync(tenant, cancellationToken);
-
-            await _walletAppDbContext.SaveChangesAsync();
+            var tenantNew = Tenant.Create(tenant.Name, tenant.Email);
+            await _walletAppDbContext.Tenants.AddAsync(tenantNew, cancellationToken);
         }
 
         public async Task<Tenant?> GetTenantById(TenantGuid tenantId, CancellationToken cancellationToken)
@@ -50,6 +47,11 @@ namespace Modules.Wallet.Infrastructure.Repositories
                 .SingleOrDefaultAsync(wi => wi.Id == walletId);
         }
 
+        public async Task<WalletItem?> GetWalletItemById(WalletItemGuid walletItemId, CancellationToken cancellationToken)
+        {
+            return await _walletAppDbContext.WalletItems.FindAsync(walletItemId);
+        }
+
         public async Task<List<Domain.Wallet>> GetWallets(TenantGuid tenantId, CancellationToken cancellationToken)
         {
             return (await GetTenantById(tenantId, cancellationToken))?.Wallets ?? throw new NullReferenceException("Tenant is null");
@@ -58,16 +60,10 @@ namespace Modules.Wallet.Infrastructure.Repositories
         public async Task UpdateWallet(Domain.Wallet wallet, CancellationToken cancellationToken)
         {
             var walletDb = await GetWalletById(wallet.Id, cancellationToken);
-            if (walletDb != null)
-            {
-                await Task.FromResult(_walletAppDbContext.Wallets.Update(wallet));
 
-                await _walletAppDbContext.SaveChangesAsync();
-            }
-            else
-            {
-                throw new NullReferenceException("Cannot update wallet. Wallet is null");
-            }
+            await Task.FromResult(_walletAppDbContext.Wallets.Update(wallet));
+
+            await _walletAppDbContext.SaveChangesAsync();
         }
     }
 }

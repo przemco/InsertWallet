@@ -12,20 +12,20 @@ namespace Modules.Cantor.Presentation.Endpoints
             app.MapGet("api/cantor/GetRateByCode/{currencyCode}", GetRateByCode);
         }
 
-        private static async Task<decimal> GetRateByCode(string currencyCode, ISender sender)
+        private static async Task<decimal> GetRateByCode(string currencyCode, ISender sender, CancellationToken cancellationToken)
         {
             var query = new GetRateByCodeQuery(currencyCode);
 
-            decimal result = await sender.Send(query);
+            decimal result = await sender.Send(query, cancellationToken);
 
             return result;
         }
 
-        private static async Task<IResult> DownloadStart(string tableName, int cycleByMinutes, ISender sender)
+        private static async Task<IResult> DownloadStart(string tableName, int cycleByMinutes, ISender sender, CancellationToken cancellationToken)
         {
             var command = new DownloadRatesCommand(tableName, cycleByMinutes);
 
-            await sender.Send(command);
+            await sender.Send(command, cancellationToken);
 
             return Results.Ok();
         }

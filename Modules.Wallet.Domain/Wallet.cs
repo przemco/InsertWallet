@@ -1,29 +1,61 @@
 ﻿namespace Modules.Wallet.Domain
 {
-    public record Wallet(WalletGuid Id, TenantGuid TenantId, string Name)
+    public record Wallet
     {
-        private readonly HashSet<WalletItem> _items = new HashSet<WalletItem>();
-        public IReadOnlyList<WalletItem> WalletItems => _items.ToList();
+        public Wallet(WalletGuid id, TenantGuid tenantId, string name)
+        {
+            Id = id;
+            TenantId = tenantId;
+            Name = name;
+        }
+
+        public HashSet<WalletItem> WalletItems { get; set; }
+
+        public string Name { get; set; }
+        public WalletGuid Id { get; init; }
+        public TenantGuid TenantId { get; init; }
 
         public static Wallet Create(TenantGuid tenantId, string name)
         {
-            var wallet = new Wallet(Id: new WalletGuid(Guid.NewGuid()), TenantId: tenantId, Name: name);
+            var wallet = new Wallet(id: new WalletGuid(Guid.NewGuid()), tenantId: tenantId, name: name);
 
             return wallet;
         }
 
         public void PutOn(Money money)
         {
-            var walletItem = new WalletItem(
-                new WalletItemGuid(Guid.NewGuid()),
-                Id)
-            { Voulume = money };
 
-            _items.Add(walletItem);
+
+            if (!WalletItems.Any(i => i.Voulume.CurrencyCode == money.CurrencyCode))
+            {
+                var walletItem = new WalletItem(new WalletItemGuid(Guid.NewGuid()), Id){ Voulume = money };
+                WalletItems.Add(walletItem);
+            }
+            else
+            {
+                var walletItem = WalletItems.Single(i => i.Voulume.CurrencyCode == money.CurrencyCode);
+                walletItem.Voulume.Amount += money.Amount;
+            }
         }
-        public void TakeOut(WalletItem item)
+        public void TakeOut(Money money)
         {
-            _items.Remove(item);            
+            var walletItem = WalletItems.SingleOrDefault(i => i.Voulume.CurrencyCode == money.CurrencyCode);
+
+            if (walletItem != null)
+            {
+                if (walletItem.Voulume.Amount >= money.Amount)
+                {
+                    walletItem.Voulume.Amount -= money.Amount;
+                }
+                else
+                {
+                    throw new Exception($"Insufficient funds in currency {money.CurrencyCode}");
+                }
+            }
+            else
+            {
+                throw new NullReferenceException($"Cannot find wallet item with code {money.CurrencyCode}");
+            }
         }
     }
 }

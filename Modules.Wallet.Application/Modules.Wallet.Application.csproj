@@ -15,9 +15,4 @@
     <ProjectReference Include="..\Modules.Wallet.Domain\Modules.Wallet.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="WalletRequests\Commands\" />
-    <Folder Include="WalletRequests\Queries\" />
-  </ItemGroup>
-
 </Project>
